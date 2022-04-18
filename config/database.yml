@@ -25,7 +25,7 @@ development:
   <<: *default
   database: mangosteen_dev
   username: mangosteen
-  password: 1234567
+  password: 123456
   host: db-for-mangosteen
 
 
