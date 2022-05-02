@@ -1,7 +1,7 @@
 # 注意修改 user 和 ip
 user=mangosteen
 # 服务器公网 ip
-ip=47.110.42.24
+ip=47.99.192.235
 # 获取时间戳
 time=$(date +'%Y%m%d-%H%M%S')
 # 打包文件路径名称
