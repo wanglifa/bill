@@ -12,7 +12,8 @@ WORKDIR /mangosteen
 ADD mangosteen-*.tar.gz ./
 # 安装除dev和test环境之外的包
 RUN bundle config set --local without 'development test'
-RUN bundle install
+# 直接从本地安装
+RUN bundle install --local
 # 启动服务(rails server 是专门运行开发环境的，puma运行生产环境)
 # 这里之所以不用 RUN，是因为我们不需要立即运行，只有当你运行 docker run 的时候，才会帮我们开启服务
 ENTRYPOINT bundle exec puma
