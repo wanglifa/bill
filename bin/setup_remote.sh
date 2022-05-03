@@ -1,8 +1,6 @@
 user=mangosteen
 root=/home/$user/deploys/$version
-# 容器name
 container_name=mangosteen-prod-1
-# 数据库容器name
 db_container_name=db-for-mangosteen
 
 function set_env {
@@ -28,7 +26,6 @@ set_env DB_PASSWORD
 set_env RAILS_MASTER_KEY
 
 title '创建数据库'
-# 如果数据库已经存在了就什么不做输出已存在数据库，否则去创建数据库
 if [ "$(docker ps -aq -f name=^${DB_HOST}$)" ]; then
   echo '已存在数据库'
 else
@@ -46,12 +43,11 @@ fi
 title 'docker build'
 docker build $root -t mangosteen:$version
 
-# 如果当前容器已经在运行了就先把这个应用容器删除
 if [ "$(docker ps -aq -f name=^mangosteen-prod-1$)" ]; then
   title 'docker rm'
   docker rm -f $container_name
 fi
-# 如果没有就运行我们这个容器
+
 title 'docker run'
 docker run -d -p 3000:3000 \
            --network=network1 \
