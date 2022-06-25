@@ -3,6 +3,7 @@ require 'rspec_api_documentation'
 RspecApiDocumentation.configure do |config|
   config.request_body_formatter = :json
 end
+
 RSpec.configure do |config|
   config.before(:each) do |spec|
     if spec.metadata[:type].equal? :acceptance
