@@ -13,4 +13,5 @@ class Item < ApplicationRecord
       self.errors.add :tags_id, '不属于当前用户'
     end
   end
+
 end
